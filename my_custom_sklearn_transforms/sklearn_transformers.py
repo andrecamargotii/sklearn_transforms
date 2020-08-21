@@ -1,5 +1,5 @@
 from sklearn.base import BaseEstimator, TransformerMixin
-
+from sklearn import preprocessing
 
 # All sklearn Transforms must have the `transform` and `fit` methods
 class DropColumns(BaseEstimator, TransformerMixin):
@@ -14,3 +14,21 @@ class DropColumns(BaseEstimator, TransformerMixin):
         data = X.copy()
         # Retornamos um novo dataframe sem as colunas indesejadas
         return data.drop(labels=self.columns, axis='columns')
+
+class ReplaceDfNaN(BaseEstimator, TransformerMixin):
+    def __init__(self, value=0):
+        self.nan = value
+    def fit(self, X, y=None):
+        return self
+    def transform(self, X):
+        data = X.copy()
+        return data.fillna(self.nan)
+
+class NormFeatures(BaseEstimator, TransformerMixin):
+    def __init__(self):
+    def fit(self, X, y=None):
+        return self
+    def transform(self, X):
+        scaler = StandardScaler()
+        data = X.copy()
+        return scaler.fit_transform(data)
