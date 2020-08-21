@@ -26,6 +26,7 @@ class ReplaceDfNaN(BaseEstimator, TransformerMixin):
 
 class NormFeatures(BaseEstimator, TransformerMixin):
     def __init__(self):
+        
     def fit(self, X, y=None):
         return self
     def transform(self, X):
