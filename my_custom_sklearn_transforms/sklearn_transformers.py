@@ -34,7 +34,7 @@ class NewFeatures(BaseEstimator, TransformerMixin):
         return data
     
 class NormFeatures(BaseEstimator, TransformerMixin):
-    def __init__(self, feature)
+    def __init__(self, feature):
         self.feature = feature
     def fit(self, X, y=None):
         return self
