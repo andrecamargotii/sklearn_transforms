@@ -32,7 +32,8 @@ class NewFeatures(BaseEstimator, TransformerMixin):
         data['MEDIA'] =  data.iloc[:, 0:4].mean(axis=1)
         data['RENDIMENTO'] = (data <= 6).astype(int).sum(axis=1)
         return data
-class NormFeatures, TransformerMixin):
+    
+class NormFeatures(BaseEstimator, TransformerMixin):
     def __init__(self, feature)
         self.feature = feature
     def fit(self, X, y=None):
